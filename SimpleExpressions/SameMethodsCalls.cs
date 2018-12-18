@@ -62,7 +62,7 @@ namespace SimpleExpressions
         }
 
         /// <summary>
-        /// Recursively visits each expression node and replaces method calls
+        /// Recursively visits each expression node and replaces methods calls
         /// </summary>
         /// <param name="sourceExp"></param>
         /// <returns></returns>
