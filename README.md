@@ -1,6 +1,6 @@
 ## SimpleExpressions
-#### Parsing and building Expression trees
-* Optimizes Expressions
+
+#### Parsing, building and optimizing Expression trees
 
 ### SameMethodsCalls
 * Eg.: (int x, int y) => F(x) > F(y) ? F(x) : (F(x) < F(2 * y) ? F(2 * y) : F(y))
