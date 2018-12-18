@@ -35,7 +35,7 @@ namespace SimpleExpressions
             try
             {
                 Monitor.Enter(_lockObj);
-                optimizedExp = (Expression<T>)SubstituteMethodCalls(sourceExp);
+                optimizedExp = (Expression<T>)SubstituteMethodsCalls(sourceExp);
                 return true;
             }
             catch (Exception ex)
@@ -66,7 +66,7 @@ namespace SimpleExpressions
         /// </summary>
         /// <param name="sourceExp"></param>
         /// <returns></returns>
-        private Expression SubstituteMethodCalls(Expression sourceExp)
+        private Expression SubstituteMethodsCalls(Expression sourceExp)
         {
             switch (sourceExp.NodeType)
             {
@@ -75,7 +75,7 @@ namespace SimpleExpressions
 
                 case ExpressionType.Lambda:
                     var lambda = (LambdaExpression)sourceExp;
-                    var replaced = SubstituteMethodCalls(lambda.Body);
+                    var replaced = SubstituteMethodsCalls(lambda.Body);
                     var declarations = _substitutions.Values.Concat(_assigned.Values).ToArray();
                     var block = Expression.Block(declarations, replaced);
 
@@ -89,41 +89,41 @@ namespace SimpleExpressions
 
                 case ExpressionType.Conditional:
                     var conditional = (ConditionalExpression)sourceExp;
-                    var test = SubstituteMethodCalls(conditional.Test);
-                    var ifTrue = SubstituteMethodCalls(conditional.IfTrue);
-                    var ifFalse = SubstituteMethodCalls(conditional.IfFalse);
+                    var test = SubstituteMethodsCalls(conditional.Test);
+                    var ifTrue = SubstituteMethodsCalls(conditional.IfTrue);
+                    var ifFalse = SubstituteMethodsCalls(conditional.IfFalse);
 
                     return Expression.Condition(test, ifTrue, ifFalse);
 
                 case ExpressionType.Add:
 
                     var binary = (BinaryExpression)sourceExp;
-                    var left = SubstituteMethodCalls(binary.Left);
-                    var right = SubstituteMethodCalls(binary.Right);
+                    var left = SubstituteMethodsCalls(binary.Left);
+                    var right = SubstituteMethodsCalls(binary.Right);
 
                     return Expression.Add(left, right);
 
                 case ExpressionType.LessThan:
 
                     binary = (BinaryExpression)sourceExp;
-                    left = SubstituteMethodCalls(binary.Left);
-                    right = SubstituteMethodCalls(binary.Right);
+                    left = SubstituteMethodsCalls(binary.Left);
+                    right = SubstituteMethodsCalls(binary.Right);
 
                     return Expression.LessThan(left, right);
 
                 case ExpressionType.GreaterThan:
 
                     binary = (BinaryExpression)sourceExp;
-                    left = SubstituteMethodCalls(binary.Left);
-                    right = SubstituteMethodCalls(binary.Right);
+                    left = SubstituteMethodsCalls(binary.Left);
+                    right = SubstituteMethodsCalls(binary.Right);
 
                     return Expression.GreaterThan(left, right);
 
                 case ExpressionType.Multiply:
 
                     binary = (BinaryExpression)sourceExp;
-                    left = SubstituteMethodCalls(binary.Left);
-                    right = SubstituteMethodCalls(binary.Right);
+                    left = SubstituteMethodsCalls(binary.Left);
+                    right = SubstituteMethodsCalls(binary.Right);
 
                     return Expression.Multiply(left, right);
 
