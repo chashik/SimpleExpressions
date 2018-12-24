@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
 
-namespace SimpleExpressions
+namespace Scriptik.Expressions
 {
-    internal interface IOptimizer
+    public interface IOptimizer
     {
         /// <summary>
         /// Tryes to build optimized expression

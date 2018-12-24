@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 
-namespace SimpleExpressions
+namespace Scriptik.Expressions
 {
     /// <summary>
     /// Substitutes repeating calls with condition expression wich places variable 
