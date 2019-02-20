@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Scriptik.Expressions
+namespace SimpleExpressions
 {
     public interface IOptimizer
     {

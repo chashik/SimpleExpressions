@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Scriptik.Expressions\Scriptik.Expressions.csproj" />
+    <ProjectReference Include="..\SimpleExpressions\SimpleExpressions.csproj" />
   </ItemGroup>
 
 </Project>
