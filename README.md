@@ -8,3 +8,5 @@
 * Single responsibility
 * Implements Visitor behavior while processing expression nodes
 * Thread-safe
+
+#### Task was provided by X-Tensive Co, Ekaterinburg
