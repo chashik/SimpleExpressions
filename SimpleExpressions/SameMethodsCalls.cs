@@ -128,7 +128,7 @@ namespace SimpleExpressions
                     return Expression.Multiply(left, right);
 
                 default:
-                    Console.Error.WriteLine($"Node not implemented yet.");
+                    Console.Error.WriteLine($"{sourceExp.NodeType} node is not yet implemented.");
                     return Expression.Constant("Undefined");
             }
         }
